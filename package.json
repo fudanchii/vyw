@@ -1,0 +1,37 @@
+{
+  "name": "vyw",
+  "version": "0.1.0",
+  "description": "View your file, backed only with nginx",
+  "main": "app.js",
+  "dependencies": {
+    "@motorcycle/dom": "^2.0.1",
+    "@cycle/most-run": "^3.0.1",
+    "@motorcycle/http": "^2.2.3",
+    "most": "^0.19.7"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "hjs-webpack": "^8.3.0",
+    "webpack": "*",
+    "webpack-dev-server": "*",
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "*",
+    "babel-runtime": "*"
+  },
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fudanchii/vyw.git"
+  },
+  "author": "Nurahmadie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fudanchii/vyw/issues"
+  },
+  "homepage": "https://github.com/fudanchii/vyw#readme"
+}

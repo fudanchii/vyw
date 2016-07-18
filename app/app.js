@@ -1,0 +1,31 @@
+import Cycle from '@cycle/most-run';
+import {makeDOMDriver, div, pre} from '@motorcycle/dom';
+import {makeHTTPDriver} from '@motorcycle/http';
+
+const EMPTY_DIR_LIST = [{}];
+
+function render(itemlist) {
+  return div(itemlist.map((c, i, a) => pre(c.name)));
+}
+
+// source stream -> process event -> state stream
+function main(sources) {
+  return {
+    DOM: sources.HTTP
+      .join()
+      .map(resp => resp.body)
+      .startWith(EMPTY_DIR_LIST)
+      .map(dirlist => render(dirlist)),
+    HTTP: sources.DOM
+      .select('.directory')
+      .events('mousedown')
+      .map(ev => ev.target.getAttribute('href'))
+      .startWith('/.json/')
+  };
+}
+
+Cycle.run(main, {
+  DOM: makeDOMDriver('#entrypoint'),
+  HTTP: makeHTTPDriver()
+});
+
