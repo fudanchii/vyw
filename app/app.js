@@ -5,7 +5,11 @@ import {makeHTTPDriver} from '@motorcycle/http';
 const EMPTY_DIR_LIST = [{}];
 
 function render(itemlist) {
-  return div(itemlist.map((c, i, a) => pre(c.name)));
+  return div('.tiles', itemlist.map((c, i, a) =>
+        div('.tiles__'+c.type, [
+          c.name
+        ])
+        ));
 }
 
 // source stream -> process event -> state stream
@@ -20,7 +24,7 @@ function main(sources) {
       .select('.directory')
       .events('mousedown')
       .map(ev => ev.target.getAttribute('href'))
-      .startWith('/.json/')
+      .startWith(window.VywConfig.prefix)
   };
 }
 
