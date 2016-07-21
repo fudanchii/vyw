@@ -16,12 +16,17 @@
     "babel-preset-es2015": "*",
     "babel-runtime": "*",
     "chai": "*",
+    "cssnano": "^3.7.3",
     "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.1",
     "hjs-webpack": "^8.3.0",
     "livescript": "^1.5.0",
     "mocha": "*",
+    "postcss-cssnext": "^2.7.0",
+    "precss": "^1.4.0",
     "webpack": "*",
-    "webpack-dev-server": "*"
+    "webpack-dev-server": "*",
+    "webpack-stream": "^3.2.0"
   },
   "scripts": {
     "test": "mocha test/index.js"

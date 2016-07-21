@@ -1,0 +1,10 @@
+.tiles {
+    display: flex;
+    flex-direction: column;
+}
+
+.tiles__directory,.tiles__file {
+    flex: 1 1 auto;
+
+    transition: width 500ms ease-out;
+}
