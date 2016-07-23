@@ -1,6 +1,8 @@
 import {div, a} from '@motorcycle/dom';
 
-import {join} from './utils';
+import {join, fileType} from './utils';
+
+import {thumbnail} from './thumbnail';
 
 export
 function renderListing(itemlist) {
@@ -13,19 +15,22 @@ function renderListing(itemlist) {
     }
 
     return div('.tiles__'+c.type, [
-        a('.tiles__'+c.type+'-link', { props: { href: href } },[
-          renderIcon(c.type),
-          div('.tiles__label-wrapper', [
-            div('.tiles__label', [c.name])
-          ])
+        a(`.tiles__${c.type}-link`, { props: { href: href } },[
+          renderIcon(c, href),
+          div('.tiles__label-wrapper', [div('.tiles__label', [c.name])])
         ])
     ])
   }));
 }
 
 export
-function renderIcon(type) {
-  return div('.tiles__icon', [div('.icon-'+type)]);
+function renderIcon(content, href) {
+  const type = fileType(content);
+  let attr = { props: {} };
+  if (type === 'image') {
+    attr.props['style'] = `background-image: url(${thumbnail(content, href)});`;
+  }
+  return div('.tiles__icon', [div(`.icon-${type}`, attr)]);
 }
 
 export

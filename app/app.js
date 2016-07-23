@@ -41,8 +41,7 @@ function main(sources) {
     DOM: httpResponseStream(sources)
       .startWith(EMPTY_DIR_LIST)
       .map(dirlist => render(dirlist)),
-    HTTP: directoryClickStream(sources)
-      .merge(historyChangeStream())
+    HTTP: historyChangeStream()
       .startWith(hashToURL(window.location.hash))
   };
 }
