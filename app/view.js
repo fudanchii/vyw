@@ -11,7 +11,7 @@ function renderListing(itemlist) {
     if (c.type === 'directory') {
       href = `#${href}`;
     } else {
-      href = join('/.file', href);
+      href = join(window.vyw.filePrefix, href);
     }
 
     return div('.tiles__'+c.type, [

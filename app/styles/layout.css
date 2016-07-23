@@ -13,8 +13,6 @@ body {
     width: 12em;
     height: 12em;
     position: relative;
-    border-right: 1px dashed;
-    border-bottom: 1px dashed;
     overflow: hidden;
 
     a {

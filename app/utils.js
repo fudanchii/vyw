@@ -9,7 +9,7 @@ function join(/*arguments*/) {
 
 export
 function hashToURL(hash) {
-  const prefix = window.VywConfig.prefix;
+  const prefix = window.vyw.prefix;
   return join(prefix, hash.substr(1));
 }
 

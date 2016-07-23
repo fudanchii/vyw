@@ -18,6 +18,7 @@
     "chai": "*",
     "cssnano": "^3.7.3",
     "gulp": "^3.9.1",
+    "gulp-livescript": "^3.0.1",
     "gulp-postcss": "^6.1.1",
     "gulp-watch": "^4.3.8",
     "hjs-webpack": "^8.3.0",

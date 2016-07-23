@@ -6,7 +6,15 @@ gulp.task \eslint ->
 
 gulp.task \test ->
 
-gulp.task \build [\css \webpack]
+gulp.task \build [\css \webpack \config]
+
+gulp.task \config ->
+    require! 'gulp-livescript' : lsc
+
+    gulp.src 'vyw.config.ls'
+        .pipe lsc do
+            bare: true
+        .pipe gulp.dest('./dist')
 
 gulp.task \css ->
     require! 'gulp-postcss' : postcss
