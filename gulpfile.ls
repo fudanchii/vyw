@@ -24,4 +24,7 @@ gulp.task \webpack ->
         .pipe webpack(require './webpack.config.ls')
         .pipe gulp.dest('dist')
 
-gulp.task \devserver ->
+gulp.task \watch ->
+    require! 'gulp-watch' : watch
+
+    watch 'app/**/*' !-> gulp.start \build

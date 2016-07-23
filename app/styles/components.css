@@ -1,0 +1,19 @@
+.icon-directory:before {
+  content: "";
+  border: 2px solid #404959;
+  height: 3.8em;
+  width: 5em;
+  display: block;
+  border-radius: 3px;
+}
+
+.icon-directory:after {
+  content: "";
+  border: 2px solid #404959;
+  width: 5em;
+  height: 3em;
+  background: #404959;
+  display: inline-block;
+  transform: translateY(-100%) skewX(-20deg) translateX(10%);
+  border-radius: 3px;
+}

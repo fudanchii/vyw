@@ -1,10 +1,49 @@
+body {
+    font-family: Consolas, Monaco, "Roboto Mono", Courier, Monospace;
+}
+
 .tiles {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .tiles__directory,.tiles__file {
-    flex: 1 1 auto;
+    flex: none;
+    width: 12em;
+    height: 12em;
+    position: relative;
+    border-right: 1px dashed;
+    border-bottom: 1px dashed;
+    overflow: hidden;
 
-    transition: width 500ms ease-out;
+    a {
+        text-decoration: none;
+        color: #000f1a;
+
+        &:hover {
+            color: #005c99;
+        }
+    }
+}
+
+.tiles__label-wrapper {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    padding: 1em;
+    box-sizing: border-box;
+
+    .tiles__label {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.tiles__icon {
+    position: absolute;
+    top: 30%;
+    left: 25%;
 }

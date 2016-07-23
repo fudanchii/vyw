@@ -1,42 +1,54 @@
 import Cycle from '@cycle/most-run';
 import {makeDOMDriver} from '@motorcycle/dom';
 import {makeHTTPDriver} from '@motorcycle/http';
-import {makeHistoryDriver} from './drivers/history';
+import {fromEvent} from 'most';
 
-import {join, backURL} from './utils';
+import {join, hashToURL} from './utils';
 
 import {render} from './view';
 
 const EMPTY_DIR_LIST = [{}];
 
-function listingClickStream(sources) {
+function clickStream(sources, selector) {
   return sources.DOM
-    .select('.tiles__directory-link,.tiles__file-link')
+    .select(selector)
     .events('click')
-    .map(ev => backURL(ev.target.getAttribute('href')));
+    .map(ev => hashToURL(ev.target.getAttribute('href')));
 }
 
-function historyChangeStream(sources) {
-  return sources.History.map(data => backURL(data.state || '#/'));
+function directoryClickStream(sources) {
+  return clickStream(sources, '.tiles__directory-link');
+}
+
+function fileClickStream(sources) {
+  return clickStream(sources, '.tiles__file-link');
+}
+
+function historyChangeStream() {
+  return fromEvent('popstate', window)
+    .map(ev => hashToURL(window.location.hash));
+}
+
+function httpResponseStream(sources) {
+  return sources.HTTP
+    .join()
+    .map(resp => resp.body);
 }
 
 // source stream -> process event -> state stream
 function main(sources) {
   return {
-    DOM: sources.HTTP
-      .join()
-      .map(resp => resp.body)
+    DOM: httpResponseStream(sources)
       .startWith(EMPTY_DIR_LIST)
       .map(dirlist => render(dirlist)),
-    HTTP: listingClickStream(sources)
-      .merge(historyChangeStream(sources))
-      .startWith(backURL(window.location.hash || '#/'))
+    HTTP: directoryClickStream(sources)
+      .merge(historyChangeStream())
+      .startWith(hashToURL(window.location.hash))
   };
 }
 
 Cycle.run(main, {
   DOM: makeDOMDriver('#entrypoint'),
-  HTTP: makeHTTPDriver(),
-  History: makeHistoryDriver()
+  HTTP: makeHTTPDriver()
 });
 
