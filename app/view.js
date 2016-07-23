@@ -28,7 +28,7 @@ function renderIcon(content, href) {
   const type = fileType(content);
   let attr = { props: {} };
   if (type === 'image') {
-    attr.props['style'] = `background-image: url(${thumbnail(content, href)});`;
+    attr.props['style'] = `background-image: url("${thumbnail(content, href)}");`;
   }
   return div('.tiles__icon', [div(`.icon-${type}`, attr)]);
 }
