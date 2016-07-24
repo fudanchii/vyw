@@ -4,18 +4,21 @@ Vyw
 Browse your file, view images thumbnail, only nginx needed.
 Use [cyclejs](http://cycle.js.org/) with [most](https://github.com/cujojs/most) as the stream engine.
 
-*Prerequisite*:
+**Prerequisite**:
+
 - Nginx > 1.9
 
 Optionally, you may want nginx with image_filter module compiled to generate thumbnail.
 
-*Installation*
+**Installation**
+
 - Get the latest release, or build yourself.
 - Check nginx config in contrib folder, you can include that file to your main nginx config directly.
 - Edit vyw.config.js file according to your setup.
 - Restart nginx, open vyw index.html from your browser
 
-*Development*
+**Development**
+
 You will need recent nodejs and npm, the usual procedure for nodejs based project applied:
 ```
 # cd to vyw source dir after clone
@@ -28,7 +31,7 @@ $ gulp build
 $ gulp watch
 ```
 
-*Development Stack*
+**Development Stack**
 - [Nginx](http://nginx.org/)
 - [Cyclejs](http://cycle.js.org/)
 - [Most](https://github.com/cujojs/most)
