@@ -10,7 +10,7 @@ window.vyw =
     * you can change this according to your real file location
     * as set in nginx
     */
-    file-prefix: '/.file'
+    file-prefix: '/'
 
     /*
     * specify thumbnailer service to use,

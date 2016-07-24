@@ -4,25 +4,9 @@ import {makeHTTPDriver} from '@motorcycle/http';
 import {fromEvent} from 'most';
 
 import {join, hashToURL} from './utils';
-
 import {render} from './view';
 
 const EMPTY_DIR_LIST = [{}];
-
-function clickStream(sources, selector) {
-  return sources.DOM
-    .select(selector)
-    .events('click')
-    .map(ev => hashToURL(ev.target.getAttribute('href')));
-}
-
-function directoryClickStream(sources) {
-  return clickStream(sources, '.tiles__directory-link');
-}
-
-function fileClickStream(sources) {
-  return clickStream(sources, '.tiles__file-link');
-}
 
 function historyChangeStream() {
   return fromEvent('popstate', window)
@@ -32,10 +16,10 @@ function historyChangeStream() {
 function httpResponseStream(sources) {
   return sources.HTTP
     .join()
+    .filter(resp => resp.type === 'application/json')
     .map(resp => resp.body);
 }
 
-// source stream -> process event -> state stream
 function main(sources) {
   return {
     DOM: httpResponseStream(sources)
