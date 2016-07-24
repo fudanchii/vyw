@@ -3,7 +3,7 @@ import {makeDOMDriver} from '@motorcycle/dom';
 import {makeHTTPDriver} from '@motorcycle/http';
 import {fromEvent} from 'most';
 
-import {join, hashToURL} from './utils';
+import {hashToURL} from './utils';
 import {render} from './view';
 
 const EMPTY_DIR_LIST = [{}];
