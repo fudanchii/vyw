@@ -32,6 +32,7 @@ $ gulp watch
 ```
 
 **Development Stack**
+
 - [Nginx](http://nginx.org/)
 - [Cyclejs](http://cycle.js.org/)
 - [Most](https://github.com/cujojs/most)
