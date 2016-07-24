@@ -1,7 +1,7 @@
 Vyw
 ---
 
-Browse your file, view images thumbnail, only nginx needed.
+Browse your file, view images thumbnail, only nginx needed.  
 Use [cyclejs](http://cycle.js.org/) with [most](https://github.com/cujojs/most) as the stream engine.
 
 **Prerequisite**:
