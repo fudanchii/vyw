@@ -3,7 +3,7 @@ import {div, a} from '@motorcycle/dom';
 import {join, fileType, pathForHref} from './utils';
 import {thumbnail} from './thumbnail';
 
-/*
+/**
  * `renderTiles` renders file as icon tiles. The actual
  * path / URL for each file rendered will be concatenated
  * with the current path as represented in window.location.hash.
@@ -18,6 +18,7 @@ export function renderTiles(itemlist) {
   const current = window.location.hash.substr(1);
   return div('.tiles', itemlist.map((c, i, arr) => {
     const href = pathForHref(current, c);
+    c.type = fileType(c);
     return div(`.tiles__${c.type}`, [
       a(`.tiles__${c.type}-link`, { props: { href: href } },[
         renderIcon(c, href),
@@ -42,12 +43,11 @@ export function renderTiles(itemlist) {
  * @return {VDOM} The DOM for the tile icon.
  */
 export function renderIcon(content, href) {
-  const type = fileType(content);
   let attr = { props: {} };
-  if (type === 'image') {
+  if (content.type === 'image') {
     attr.props['style'] = `background-image: url("${thumbnail(content, href)}");`;
   }
-  return div('.tiles__icon', [div(`.icon-${type}`, attr)]);
+  return div('.tiles__icon', [div(`.icon-${content.type}`, attr)]);
 }
 
 

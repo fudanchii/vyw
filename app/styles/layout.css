@@ -9,13 +9,23 @@ body {
 }
 
 .tiles__directory,.tiles__file {
-    flex: 1 1 auto;
+    max-width: 256px;
+}
+
+.tiles__image {
     max-width: 344px;
+}
+
+.tiles__directory,.tiles__file,.tiles__image {
+    flex: 1 1 auto;
     width: 196px;
     height: 196px;
     position: relative;
     overflow: hidden;
-    transition: width 300ms;
+
+    &:hover {
+        filter: contrast(120%);
+    }
 
     a {
         text-decoration: none;
@@ -25,10 +35,6 @@ body {
             color: #005c99;
         }
     }
-}
-
-.tiles__file:has(.icon-image):hover {
-    width: 344px;
 }
 
 .tiles__label-wrapper {
@@ -41,7 +47,6 @@ body {
 
     &:hover {
         background-color: rgba(255,255,255, 0.5);
-        backdrop-filter: blur(5px);
     }
 
     .tiles__label {
