@@ -20,8 +20,9 @@ export function join(fragments) {
  * @return {string} The URL path
  */
 export function hashToURL(hash) {
-  const prefix = window.vyw.prefix;
-  return join(prefix, hash.substr(1));
+  const endpoint = window.vyw.listEndpoint;
+  const path = hash.substr(1) === '' ? '/' : hash.substr(1);
+  return endpoint.replace(/\/?<PATHNAME>/g, path);
 }
 
 
@@ -40,11 +41,12 @@ export function pathForHref(current, item) {
   if (item.type === 'directory') {
     return `#${join(current, item.name)}`;
   }
-  return join(window.vyw.filePrefix, current, item.name);
+  const fileUrl = window.vyw.fileEndpoint;
+  return fileUrl.replace(/\/?<PATHNAME>/g, join(current, item.name));
 }
 
 
-const imgType = ['bmp', 'jpg', 'jpeg', 'gif', 'png', 'webp'];
+const imgType = window.vyw.supportedImageType;
 
 /**
  * `fileType` returns file type of the given object

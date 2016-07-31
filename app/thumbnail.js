@@ -5,7 +5,7 @@ import {join, byteSize} from './utils';
  * It reads `thumbnailer` property from config which possibly
  * contains:
  * <ul>
- * <li>`local`
+ * <li>`original-image`
  * <li>URL template for thumbnail services
  * </ul>
  * For example, to use rsz.io service you can specify this
@@ -22,7 +22,7 @@ import {join, byteSize} from './utils';
  * @return {string} URL to the thumbnail image.
  */
 export function thumbnail(source, href) {
-  if (window.vyw.thumbnailer === 'local' &&
+  if (window.vyw.thumbnailer === 'original-image' &&
       byteSize(window.vyw.maxSize) >= (0|source.size)) {
     return href;
   }
@@ -30,5 +30,21 @@ export function thumbnail(source, href) {
 }
 
 function genThumbnail(href) {
-  return window.vyw.thumbnailer.replace(/<FILEPATH>/g, href);
+  var path, url, hostname, host;
+  try {
+    if (href.indexOf('//') === 0) {
+      href = window.location.protocol + href;
+    }
+    url = new URL(href);
+    path = url.pathname;
+  } catch (e) { /* href doesn't specify domain */
+    path = href;
+    url = window.location;
+  }
+  host = url.host;
+  hostname = url.hostname;
+  return window.vyw.thumbnailer
+    .replace(/<HOST>/g, host)
+    .replace(/<HOSTNAME>/g, hostname)
+    .replace(/\/?<PATHNAME>/g, path);
 }
