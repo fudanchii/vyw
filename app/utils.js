@@ -1,4 +1,4 @@
-/*
+/**
  * `join` supplied arguments with a slash,
  * create proper path.
  * @param {...string} fragments Path fragments to be joined.
@@ -12,7 +12,7 @@ export function join(fragments) {
 }
 
 
-/*
+/**
  * `hashToURL` converts hash, as typically returned by
  * window.location.hash, to the URL path of the directory
  * listing.
@@ -46,7 +46,7 @@ export function pathForHref(current, item) {
 
 const imgType = ['bmp', 'jpg', 'jpeg', 'gif', 'png', 'webp'];
 
-/*
+/**
  * `fileType` returns file type of the given object
  * @param {Object} c The object typically returned by nginx
  *   autoindex
@@ -73,7 +73,7 @@ function ext(name = '') {
 }
 
 
-/*
+/**
  * `byteSize` converts number with (K|M|G) suffix
  * to bytes.
  * @param {string|number} size Input size

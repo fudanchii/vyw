@@ -1,6 +1,6 @@
 import {join, byteSize} from './utils';
 
-/*
+/**
  * `thumbnail` generates url for thumbnail size of image.
  * It reads `thumbnailer` property from config which possibly
  * contains:

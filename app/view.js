@@ -29,7 +29,7 @@ export function renderTiles(itemlist) {
 }
 
 
-/*
+/**
  * render `div.tiles__icon`, that is,
  * the icon used in tiles layout. This will display
  * thumbnail if the supplied content is an image.
@@ -51,7 +51,7 @@ export function renderIcon(content, href) {
 }
 
 
-/*
+/**
  * `render` is the main render method,
  * typically we only need to call this from
  * our main stream-loop, But currently only
