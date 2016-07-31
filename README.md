@@ -42,6 +42,9 @@ $ gulp watch
 - [Webpack](https://webpack.github.io/)
 
 
+**Security Consideration**
+Please be aware that Vyw doesn't employ any authorization nor it's implements any access restriction to the directory listing or files. Vyw were designed to be a simple files browser fully run on client (web browser). All access restriction should be implemented on the server. You may want, at least, to add [basic auth](http://nginx.org/en/docs/http/ngx_http_auth_basic_module.html) method to the directory listing on your nginx config, in addition of using https for everything.
+
 
 ISC License (ISC)
 ---
