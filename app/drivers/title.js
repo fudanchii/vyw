@@ -12,8 +12,8 @@ export function makeTitleDriver() {
  * @returns {string} Title string.
  */
 export function title(from, appName) {
-  let t = from.substr(1) === '' ? '/' : from.substr(1);
-  return t + ' | ' + appName;
+  const t = from.substr(1) === '' ? '/' : from.substr(1);
+  return decodeURI(t) + ' | ' + appName;
 }
 
 function titleDriver(title$) {
