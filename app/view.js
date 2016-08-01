@@ -12,7 +12,7 @@ import {thumbnail} from './thumbnail';
  * @param {string} itemlist[].name File name or directory name.
  * @param {string} itemlist[].type Item type,
  *   either `directory` or `file`.
- * @return {VDOM} The DOM structure of the tiles.
+ * @returns {VDOM} The DOM structure of the tiles.
  */
 export function renderTiles(itemlist) {
   const current = window.location.hash.substr(1);
@@ -40,7 +40,7 @@ export function renderTiles(itemlist) {
  * @param {string} content.size File or directory size.
  * @param {string} href The actual path of the file /
  *   directory listing.
- * @return {VDOM} The DOM for the tile icon.
+ * @returns {VDOM} The DOM for the tile icon.
  */
 export function renderIcon(content, href) {
   let attr = { props: {} };
@@ -57,7 +57,7 @@ export function renderIcon(content, href) {
  * our main stream-loop, But currently only
  * renderTiles implemented.
  * @param {Object[]} items List of item to render
- * @return {VDOM} the DOM representation of the whole layout
+ * @returns {VDOM} the DOM representation of the whole layout
  */
 export function render(items) {
   return renderTiles(items);

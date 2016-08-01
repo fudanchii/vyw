@@ -5,6 +5,7 @@ import {fromEvent} from 'most';
 
 import {hashToURL} from './utils';
 import {render} from './view';
+import {makeTitleDriver, title} from './drivers/title';
 
 const EMPTY_DIR_LIST = [{}];
 
@@ -25,13 +26,20 @@ function main(sources) {
     DOM: httpResponseStream(sources)
       .startWith(EMPTY_DIR_LIST)
       .map(dirlist => render(dirlist)),
+
     HTTP: historyChangeStream()
-      .startWith(hashToURL(window.location.hash))
+      .startWith(hashToURL(window.location.hash)),
+
+    Title: httpResponseStream(sources)
+      .map(_ => title(window.location.hash, 'Vyw'))
   };
 }
 
-Cycle.run(main, {
+const drivers = {
   DOM: makeDOMDriver('#entrypoint'),
-  HTTP: makeHTTPDriver()
-});
+  HTTP: makeHTTPDriver(),
+  Title: makeTitleDriver()
+};
+
+Cycle.run(main, drivers);
 

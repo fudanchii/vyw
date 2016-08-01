@@ -19,7 +19,7 @@ import {join, byteSize} from './utils';
  *   from a list returned by nginx.
  * @param {string|number} source.size The size of the file.
  * @param {string} href Pointer to the real path of the file.
- * @return {string} URL to the thumbnail image.
+ * @returns {string} URL to the thumbnail image.
  */
 export function thumbnail(source, href) {
   if (window.vyw.thumbnailer === 'original-image' &&

@@ -2,7 +2,7 @@
  * `join` supplied arguments with a slash,
  * create proper path.
  * @param {...string} fragments Path fragments to be joined.
- * @return {string} The path.
+ * @returns {string} The path.
  */
 export function join(fragments) {
   let joindPath = Array.prototype.reduce.call(arguments, (p, c, i, a) => {
@@ -17,7 +17,7 @@ export function join(fragments) {
  * window.location.hash, to the URL path of the directory
  * listing.
  * @param {string} hash The hash to convert from
- * @return {string} The URL path
+ * @returns {string} The URL path
  */
 export function hashToURL(hash) {
   const endpoint = window.vyw.listEndpoint;
@@ -35,7 +35,7 @@ export function hashToURL(hash) {
  *   directory.
  * @param {string} item.name The name of the file or directory
  * @param {string} item.type The type of the item
- * @return {string} The URL for href attribute.
+ * @returns {string} The URL for href attribute.
  */
 export function pathForHref(current, item) {
   if (item.type === 'directory') {
@@ -55,7 +55,7 @@ const imgType = window.vyw.supportedImageType;
  * @param {string} c.name The name of the item.
  * @param {string} c.type The type of the item, known possible
  *   value is either `directory` or `file`.
- * @return {string} The type of this item. As currently this is
+ * @returns {string} The type of this item. As currently this is
  *   only used to set image for images type. The output is only
  *   limited to either: `directory`, `image`, or `file`
  *   There's a chance more file type will returned in the near future.
@@ -79,7 +79,7 @@ function ext(name = '') {
  * `byteSize` converts number with (K|M|G) suffix
  * to bytes.
  * @param {string|number} size Input size
- * @return {number} The size in bytes
+ * @returns {number} The size in bytes
  */
 export function byteSize(size) {
   const K = 1024,
