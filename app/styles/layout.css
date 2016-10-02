@@ -14,6 +14,11 @@ body {
 
 .tiles__image {
     max-width: 344px;
+
+    .tiles__label {
+        transition: color 300ms;
+        color: rgba(0, 0, 0, 0);
+    }
 }
 
 .tiles__directory,.tiles__file,.tiles__image {
@@ -25,6 +30,15 @@ body {
 
     &:hover {
         filter: contrast(120%);
+
+        .tiles__label {
+            color: #005c99;
+        }
+
+        .tiles__label-wrapper {
+            background-color: rgba(255,255,255, 0.5);
+        }
+
     }
 
     a {
@@ -44,10 +58,6 @@ body {
     padding: 1em;
     box-sizing: border-box;
     transition: background-color 300ms;
-
-    &:hover {
-        background-color: rgba(255,255,255, 0.5);
-    }
 
     .tiles__label {
         width: 100%;
