@@ -43,9 +43,9 @@ export function renderTiles(itemlist) {
  * @returns {VDOM} The DOM for the tile icon.
  */
 export function renderIcon(content, href) {
-  let attr = { props: {} };
+  let attr = { };
   if (content.type === 'image') {
-    attr.props['style'] = `background-image: url("${thumbnail(content, href)}");`;
+    attr.style = { 'background-image': `url("${thumbnail(content, href)}")` };
   }
   return div('.tiles__icon', [div(`.icon-${content.type}`, attr)]);
 }

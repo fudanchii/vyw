@@ -11,7 +11,7 @@ const EMPTY_DIR_LIST = [{}];
 
 function historyChangeStream() {
   return fromEvent('popstate', window)
-    .map(ev => hashToURL(window.location.hash));
+    .map(() => hashToURL(window.location.hash));
 }
 
 function httpResponseStream(sources) {
@@ -31,7 +31,7 @@ function main(sources) {
       .startWith(hashToURL(window.location.hash)),
 
     Title: httpResponseStream(sources)
-      .map(_ => title(window.location.hash, 'Vyw'))
+      .map(() => title(window.location.hash, 'Vyw'))
   };
 }
 
