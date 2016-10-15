@@ -1,6 +1,8 @@
 require! 'hjs-webpack' : getConfig
 require! fs
 
+pkg = fs.read-file-sync('package.json', 'utf8') |> JSON.parse
+
 read-fragment = (name) ->
     fragment-name = "app/fragments/#name.html"
     try
@@ -9,6 +11,8 @@ read-fragment = (name) ->
     catch
         ''
 
+pkgname = pkg.name
+pkgver = pkg.version
 config = getConfig do
     in: 'app/app.js'
     out: \dist
@@ -28,7 +32,7 @@ config = getConfig do
             lang: \en
             title: \Vyw
             html: read-fragment \body
-            head: read-fragment \head
+            head: read-fragment \head .replace 'main.css', "#pkgname.#pkgver.css"
             publicPath: ''
     hostname: \0.0.0.0
 

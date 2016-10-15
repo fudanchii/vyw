@@ -1,4 +1,7 @@
 require! gulp
+require! fs
+
+pkg = fs.read-file-sync('package.json', 'utf8') |> JSON.parse
 
 gulp.task \default [\eslint \test]
 
@@ -18,10 +21,15 @@ gulp.task \config ->
 
 gulp.task \css ->
     require! 'gulp-postcss' : postcss
+    require! 'gulp-rename': rename
+
+    pkgname = pkg.name
+    pkgver = pkg.version
 
     gulp.src 'app/styles/main.css'
         .pipe postcss [ require(\precss)
                         require(\cssnano) ]
+        .pipe rename("#pkgname.#pkgver.css")
         .pipe gulp.dest('dist')
 
 gulp.task \webpack ->

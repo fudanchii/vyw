@@ -4,8 +4,8 @@
   "description": "View your file, backed only with nginx",
   "main": "app.js",
   "dependencies": {
-    "@motorcycle/dom": "^2.0.1",
     "@cycle/most-run": "^3.0.1",
+    "@motorcycle/dom": "^2.0.1",
     "@motorcycle/http": "^2.2.3",
     "most": "^0.19.7"
   },
@@ -20,6 +20,7 @@
     "gulp": "^3.9.1",
     "gulp-livescript": "^3.0.1",
     "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
     "gulp-watch": "^4.3.8",
     "hjs-webpack": "^8.3.0",
     "livescript": "^1.5.0",
