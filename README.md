@@ -20,10 +20,10 @@ Optionally, you may want nginx with image_filter module compiled to generate thu
 
 **Development**
 
-You will need recent nodejs and npm, the usual procedure for nodejs based project applied:
+You will need recent nodejs and and yarnpkg, the usual procedure for nodejs based project applied:
 ```
 # cd to vyw source dir after clone
-$ npm install
+$ yarn
 
 # Assuming gulp already installed globally
 $ gulp build
