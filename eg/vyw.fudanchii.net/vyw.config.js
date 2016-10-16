@@ -7,7 +7,7 @@ window.vyw = {
   * url with different domain, but the server should
   * support CORS.
   */
-  listEndpoint: '//vyw.fudanchii.net/json/images/<PATHNAME>'
+  listEndpoint: '//vyw.fudanchii.net/json/<PATHNAME>'
   /**
   * this prefix will be applied when accessing files
   * you can change this according to your real file location
