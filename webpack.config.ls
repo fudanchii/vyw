@@ -6,8 +6,8 @@ pkg = fs.read-file-sync('package.json', 'utf8') |> JSON.parse
 read-fragment = (name) ->
     fragment-name = "app/fragments/#name.html"
     try
-        fs.accessSync fragment-name
-        fs.readFileSync fragment-name .toString!
+        fs.access-sync fragment-name
+        fs.read-file-sync fragment-name .toString!
     catch
         ''
 
