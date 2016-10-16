@@ -7,14 +7,14 @@ window.vyw = {
   * url with different domain, but the server should
   * support CORS.
   */
-  listEndpoint: '//vyw.fudanchii.net/json/<PATHNAME>'
+  listEndpoint: '//vyw.fudanchii.net/json/images/<PATHNAME>'
   /**
   * this prefix will be applied when accessing files
   * you can change this according to your real file location
   * as set in nginx. Or you can specify file path with different
   * domain, as long as it's corresponds with `<PATHNAME>` value.
   */,
-  fileEndpoint: '//vyw.fudanchii.net/<PATHNAME>'
+  fileEndpoint: '//vyw.fudanchii.net/images/<PATHNAME>'
   /**
   * specify thumbnailer service to use,
   * `<PATHNAME>` will be substituted with
