@@ -8,7 +8,7 @@ server {
     image_filter_jpeg_quality 98;
     image_filter_sharpen 20;
 
-    location ~ ^/(?P<w>[0-9]+|\-)/(?P<h>[0-9]|\-)/(?P<rfile>.+) {
+    location ~ ^/(?P<w>[0-9]+|\-)/(?P<h>[0-9]+|\-)/(?P<rfile>.+) {
         rewrite ^ /$rfile break;
         image_filter resize $w $h;
         error_page 415 = /empty.gif;
