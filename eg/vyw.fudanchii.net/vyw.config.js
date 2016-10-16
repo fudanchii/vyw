@@ -25,7 +25,7 @@ window.vyw = {
   * If host domain is needed in thumbnailer,
   * `<HOST>` and `<HOSTNAME>` is available to use.
   */,
-  thumbnailer: 'https://rsz2.fudanchii.net/344/344/<PATHNAME>'
+  thumbnailer: 'https://rsz2.fudanchii.net/344/344/images/<PATHNAME>'
   /**
    * this set max file size to allow thumbnail generation
    * `0` means no thumbnail.
