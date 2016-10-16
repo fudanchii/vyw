@@ -14,13 +14,13 @@ Optionally, you may want nginx with image_filter module compiled to generate thu
 **Installation**
 
 - Get the latest release, or build yourself.
-- Check nginx config in contrib folder, you can include that file to your main nginx config directly.
+- Check nginx config in `eg` folder, you can include that file to your main nginx config directly.
 - Edit vyw.config.js file according to your setup.
 - Restart nginx, open vyw index.html from your browser
 
 **Development**
 
-You will need recent nodejs and and yarnpkg, the usual procedure for nodejs based project applied:
+You will need recent nodejs and yarnpkg, the usual procedure for nodejs based project applied:
 ```
 # cd to vyw source dir after clone
 $ yarn
